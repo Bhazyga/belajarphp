@@ -1,11 +1,9 @@
 
 <?php 
 
-include 'navbar.php';
+include 'config/database.php';
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +17,7 @@ include 'navbar.php';
         <?php include 'navbar.php' ?>
         <h1>Silahkan Login</h1>
         
+
 
 <input type="text" placeholder="Masukan Username Anda" name="username">
 <input type="password" placeholder="Masukan Password Anda" name="password">
