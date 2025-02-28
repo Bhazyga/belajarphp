@@ -1,5 +1,7 @@
 
 <?php 
+session_start();
+
 
 include 'config/database.php';
 
@@ -8,19 +10,18 @@ if (isset($_POST['login']))
 {
     $username = $_POST['username'];
     $password = $_POST['password'];
-
-    $echo = $username;
-
-
     $result = $db->query("SELECT * FROM penggunas Where username = '$username' AND password = '$password'");
 
     if ($result->num_rows > 0) {
         $_SESSION['username'] = $username;
+        $_SESSION['password'] = $password;
         echo "<script>alert('Login Berhasil!'); window.location.href='dashboard.php';</script>";
         $_SESSION['isLogin'] = true;
     } else {
-        // Login gagal
         echo "<script>alert('Username atau Password salah!'); window.location.href='login.php';</script>";
+    }
+    if(isset($_POST['isLogin']) == true ) {
+        echo "<script>alert('Anda Sudah Login! tidak bisa login lagi'); window.location.href='dashboard.php';</script>";
     }
 }
 
