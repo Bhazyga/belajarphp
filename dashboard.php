@@ -1,4 +1,7 @@
 
+<?php 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,11 +15,14 @@
 <body>
     
     
+    <?php include 'navbaradmin.php' ?>
+    <hr>
+    
     <h1 class="text-danger">selamat datang di Dashboard Desa Batulawang</h1>
-<h2>Menu Kami</h2>
-    <?php include 'navbar.php' ?>
-
+    <h2>Menu Kami</h2>
     <?php include 'footer.php' ?>
+
+    <a action='logout' >Logout</a>
 
 
 </body>
