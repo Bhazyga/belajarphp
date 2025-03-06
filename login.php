@@ -10,6 +10,11 @@ if (isset($_SESSION['isLogin'])){
     header('location: dashboard.php');
 }
 
+if (isset($_SESSION['isLogin']) === true){
+    header('location: dashboard.php');
+    exit;
+}
+
 if (isset($_POST['login']))
 {
     $username = $_POST['username'];
@@ -20,7 +25,7 @@ if (isset($_POST['login']))
         $result->fetch_assoc();
         $_SESSION['username'] = $username;
         $_SESSION['password'] = $password;
-        $_SESSION['isLogin'];
+        $_SESSION['isLogin'] = true;
         echo "<script>alert('Login Berhasil!'); window.location.href='dashboard.php';</script>";
     } else {
         echo "<script>alert('Username atau Password salah!'); window.location.href='login.php';</script>";

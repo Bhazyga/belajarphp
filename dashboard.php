@@ -4,8 +4,25 @@ session_start();
 
 if (isset($_POST['logout'])){
     session_destroy();
+    header('location: index.php');  // Ini untuk nge redirect ke index.php
+    exit();
 
 }
+
+// Ini Untuk Kalau misalkan belum login dia akan, di route ke halaman index 
+if (isset($_SESSION['isLogin']) === false){
+    header('location: index.php');
+    exit;
+}
+
+// <form action="dashboard.php" method="POST">
+//     <button type="submit" class="btn btn-danger" name="logout" >Logout</button>
+// </form>
+
+
+
+
+
 
 ?>
 <!DOCTYPE html>
@@ -29,7 +46,7 @@ if (isset($_POST['logout'])){
     <?php include 'footer.php' ?>
 
 <form action="dashboard.php" method="POST">
-    <button type="submit" name="logout" >Logout</button>
+    <button type="submit" class="btn btn-danger" name="logout" >Logout</button>
 </form>
 
 
