@@ -2,6 +2,9 @@
 include './config/database.php';
 
 
+$password_enkripsi = '';
+
+
 if (isset($_GET['id'])){
     $id = $_GET['id'];
     $sql = "SELECT * FROM penggunas WHERE id =?";
@@ -19,6 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
     $username = $_POST['username'];
     $password = $_POST['password'];
+
+    $password = password_hash($password,PASSWORD_BCRYPT);
 
     $sqlUpdate = "UPDATE penggunas SET username = ?, password = ? WHERE id = ?";
 
