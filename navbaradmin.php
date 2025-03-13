@@ -1,3 +1,21 @@
+<?php 
+session_start();
+include './config/database.php';
+
+if (isset($_POST['logout'])){
+    session_destroy();
+    header('location: index.php');  // Ini untuk nge redirect ke index.php
+    exit();
+
+}
+
+// Ini Untuk Kalau misalkan belum login dia akan, di route ke halaman index 
+if (isset($_SESSION['isLogin']) === false){
+  header('location: index.php');
+  exit;
+}
+?>
+
 <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
   
 <header class="bg-white">
@@ -19,7 +37,11 @@
         <nav aria-label="Global" class="hidden md:block">
           <ul class="flex items-center gap-6 text-sm">
             <li>
-              <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> Dashboard </a>
+              <a class="text-gray-500 transition hover:text-gray-500/75" href="dashboard.php"> Dashboard </a>
+            </li>
+
+            <li>
+              <a class="text-gray-500 transition hover:text-gray-500/75" href="index.php"> Menu Awal </a>
             </li>
 
             <li>
@@ -89,10 +111,11 @@
             </div>
 
             <div class="p-2">
-              <form method="POST" action="#">
+              <form method="POST" action="dashboard.php">
                 <button
                   type="submit"
                   class="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-red-700 hover:bg-red-50"
+                  name="logout"
                   role="menuitem"
                 >
                   <svg
