@@ -68,6 +68,7 @@ if (isset($_SESSION['isLogin']) === false){
 
         <div class="hidden md:relative md:block">
           <button
+          id="toggleButton"
             type="button"
             class="overflow-hidden rounded-full border border-gray-300 shadow-inner"
           >
@@ -81,7 +82,8 @@ if (isset($_SESSION['isLogin']) === false){
           </button>
 
           <div
-            class="absolute end-0 z-10 mt-0.5 w-56 divide-y divide-gray-100 rounded-md border border-gray-100 bg-white shadow-lg"
+          id="tombolKlik"
+            class="hidden absolute end-0 z-10 mt-0.5 w-56 divide-y divide-gray-100 rounded-md border border-gray-100 bg-white shadow-lg"
             role="menu"
           >
             <div class="p-2">
@@ -160,3 +162,16 @@ if (isset($_SESSION['isLogin']) === false){
     </div>
   </div>
 </header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const toggleButton = document.getElementById('toggleButton');
+  const tombolKlik = document.getElementById('tombolKlik');
+
+  // console.log(tombolKlik);
+  
+  toggleButton.addEventListener("click", function(){
+    tombolKlik.classList.toggle('hidden');
+  });
+});
+</script>
