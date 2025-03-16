@@ -3,9 +3,9 @@
 include './config/database.php';
 
 
-$sqlpenggunas = 'Select * from penggunas';
+$sqlticket = 'Select * from ticket';
 
-$result = $db->query($sqlpenggunas);
+$result = $db->query($sqlticket);
 
 
 
@@ -77,9 +77,9 @@ if (isset($_GET['deletepenggunas']) ){
           <?= $row['id'] ?>
         </td>
       
-        <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"><?= $row['username'] ?></td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"><?= $row['nama_ticket'] ?></td>
        
-        <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"><?= $row['created_at'] ?></td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"><?= $row['gambar'] ?></td>
        
         <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
           <a class="btn text-red-400" href="dashboard.php?deletepenggunas=<?= $row['id'];?>">Delete</a>

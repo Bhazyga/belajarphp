@@ -45,7 +45,7 @@ if (isset($_GET['deletepenggunas']) ){
 
     <div class="text-center">
     <h1 class="text-danger">Selamat datang <b class="text-biru"><?= $_SESSION['username'] ?></b></h1>
-    <h2>di Dashboard Desa Batulawang </h2>
+    <h2>Menu Dashboard </h2>
     </div>
     
     
